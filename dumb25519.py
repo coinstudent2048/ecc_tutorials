@@ -142,7 +142,7 @@ class Scalar:
     # Hex representation
     def __repr__(self):
         bits = [(self.x >> i) & 1 for i in range(b)]
-        return bytes.hex(bytes([sum([bits[i*8+j] << j for j in range(8)]) for i in range(b//8)]))
+        return bytes.hex(bytes([sum([bits[i*8+j] << j for j in range(7,-1,-1)]) for i in range((b//8)-1,-1,-1)]))
 
     # Return underlying integer
     def __int__(self):
@@ -244,7 +244,7 @@ class Point:
     # Hex representation
     def __repr__(self):
         bits = [(self.y >> i) & 1 for i in range(b-1)] + [self.x & 1]
-        return bytes.hex(bytes([sum([bits[i*8+j] << j for j in range(8)]) for i in range(b//8)]))
+        return bytes.hex(bytes([sum([bits[i*8+j] << j for j in range(7,-1,-1)]) for i in range((b//8)-1,-1,-1)]))
 
     # Curve membership (not main subgroup!)
     def on_curve(self):
