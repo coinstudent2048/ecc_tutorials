@@ -24,8 +24,10 @@ sum = one + two
 
 print("Addition:")
 print(str(one) + " + " + str(two) + " = " + str(sum))
-print("Woah! It's written differently. This is because relevant types of data have a standard \
-format (it's in hex).")
+print("Woah! It's written differently.")
+print("In the official Monero code, scalars are represented in hexadecimal in *little-endian* order, \
+meaning that the least significant byte (or the \"supposed\" rightmost 2 hex digits of the integer \
+representation) are written first.")
 print("Here's the more normal-looking equation:")
 print(str(one.x) + " + " + str(two.x) + " = " + str(sum.x))
 
