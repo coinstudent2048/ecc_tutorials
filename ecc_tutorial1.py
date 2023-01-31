@@ -22,6 +22,11 @@ one = Scalar(1)
 two = Scalar(2)
 sum = one + two
 
+# technical note: scalars form an algebraic structure called "field".
+# a field is a set along with all the 4 basic operations defined on that set.
+# in case of scalars, that set is all integers from 0 to (l - 1). then
+# the operations are shown below:
+
 print("Addition:")
 print(str(one) + " + " + str(two) + " = " + str(sum))
 print("Woah! It's written differently.")
