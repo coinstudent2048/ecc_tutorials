@@ -12,7 +12,7 @@ import dumb25519
 #
 # where in the number of USABLE points should be a HUGE PRIME number,
 # and this is the dumb25519.l for ed25519.
-# note 1: if you know basic group theory, the number of usable points form a "subgroup" of the whole group.
+# note 1: if you're familiar in basic group theory, the usable points form a "subgroup" of the whole group.
 # note 2: inside dumb25519.py code, this group of usable points is called the "main subgroup".
 #
 # now you can have questions:
@@ -29,7 +29,7 @@ import dumb25519
 #
 #     I cannot say which is "better". I think both curves are fine.
 #
-#     however, note that secp256k1's point addition is somewhat "incomplete", because for its
+#     however, secp256k1's point addition is somewhat "incomplete", because for its
 #     "simplest" description, the zero point (the dumb25519.Z) doesn't really exist as a point (x,y)!
 #     this zero "point" is the so called "point at infinity", in which you somewhat force its
 #     zeroness (i.e. X + Z = Z + X = X) in implementations.

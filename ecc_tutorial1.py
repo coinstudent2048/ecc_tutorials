@@ -22,12 +22,11 @@ one = Scalar(1)
 two = Scalar(2)
 sum = one + two
 
-# technical note: scalars form an algebraic structure called "field".
-# a field is a set along with all the 4 basic operations defined on that set.
-# in case of scalars, that set is all integers from 0 to (l - 1). then
-# the operations are shown below:
+# note: if you're familiar in basic abstract algbera, scalars form an algebraic structure called "field".
+# a field is a set along with all the 4 basic operations defined on that set. in case of scalars,
+# that set is all integers from 0 to (l - 1). then the operations are as follows:
 
-print("Addition:")
+print("\nAddition:")
 print(str(one) + " + " + str(two) + " = " + str(sum))
 print("Woah! It's written differently.")
 print("In the official Monero code, scalars are represented in hexadecimal in *little-endian* order, \
@@ -36,18 +35,20 @@ representation) are written first.")
 print("Here's the more normal-looking equation:")
 print(str(one.x) + " + " + str(two.x) + " = " + str(sum.x))
 
-# other operations
+print("\nSubtraction:")
 diff = one - two
 print(str(one.x) + " - " + str(two.x) + " = " + str(diff.x))
 print("What?! Not -1? Again, our numbers are only from 0 to (l - 1). Hence -1 becomes \
 \"the same\" with (l - 1).")
 
+print("\nMultiplication:")
 prod = one * two
 print(str(one.x) + " * " + str(two.x) + " = " + str(prod.x))
 
-# we have something like "division", but we do not use slash.
+# lastly, we have something like "division", but we do not use slash.
 # instead, inversion (analogous to "reciprocal") is performed on the supposed
 # divisor, then perform multiplication.
+print("\nDivision:")
 quot = one * two.invert()
 print(str(one.x) + " / " + str(two.x) + " = " + str(quot.x))
 print("...Yeah this doesn't make much sense. 1/2 becomes \"the same\" with... that quotient.\n\
@@ -55,12 +56,15 @@ To make sense of this, we multiply the \"quotient\" and 2. The product should be
 like x * (1/x) = 1.")
 prod2 = two * quot
 print(str(two.x) + " * " + str(quot.x) + " = " + str(prod2.x) + " :)")
-# exponent is also possible. the power should be a natural number only.
+
+# now exponentiation is also possible. the power should be a natural number only.
+print("\nExponentiation (with natural number power only)")
 exp = two ** 3
 print(str(two.x) + " ** 3 = " + str(exp.x))
+
 # get a random scalar
 rnd_scalar = dumb25519.random_scalar()
-print("Random scalar: " + str(rnd_scalar) + " or \n" + str(rnd_scalar.x))
+print("\nRandom scalar: " + str(rnd_scalar) + " or \n" + str(rnd_scalar.x))
 
 # other Scalar operations in dumb25519:
 # comparsion (does not account for overflow), true truncated division ("//"), etc.
