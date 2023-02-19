@@ -4,16 +4,16 @@ import dumb25519
 
 # this is about the so called "cofactor" of elliptic curves.
 # the secp256k1 curve, used in Bitcoin, has cofactor = 1.
-# while ed25519, used in Monero, has cofactor = 8. What does this mean?
+# while ed25519 curve, used in Monero, has cofactor = 8. What does this mean?
 # the cofactor > 1 means that the "whole" group of points in elliptic curve
-# contains points that WE do NOT (and SHOULD NOT) use. More precisely,
+# contains points that we do not (and SHOULD NOT) use. More precisely,
 #
 # cofactor = (total number of points of elliptic curve group) / (number of USABLE points)
 #
 # where in the number of USABLE points should be a HUGE PRIME number,
-# and this is the dumb25519.l for ed25519.
+# and for ed25519, this is the value of dumb25519.l in dumb25519.py.
 # note 1: if you're familiar in basic group theory, the usable points form a "subgroup" of the whole group.
-# note 2: inside dumb25519.py code, this group of usable points is called the "main subgroup".
+# note 2: in dumb25519.py code, this group of usable points is called the "main subgroup".
 #
 # now you can have questions:
 #
@@ -29,10 +29,10 @@ import dumb25519
 #
 #     I cannot say which is "better". I think both curves are fine.
 #
-#     however, secp256k1's point addition is somewhat "incomplete", because for its
-#     "simplest" description, the zero point (the dumb25519.Z) doesn't really exist as a point (x,y)!
+#     however, unlike the zero point of ed25519 (this is the dumb25519.Z in dumb25519.py),
+#     the zero point of secp256k1 doesn't really exist as a point (x,y)!
 #     this zero "point" is the so called "point at infinity", in which you somewhat force its
-#     zeroness (i.e. X + Z = Z + X = X) in implementations.
+#     zeroness (i.e. X + Z = Z + X = X) in curve implementations (in affine coordinates).
 #     this is among the "many edge cases and subtle death traps"[1] of math of elliptic curves.
 #
 #     as for Monero choosing ed25519, I don't know really. this goes back to the CryptoNote whitepaper.
